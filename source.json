@@ -1,0 +1,20 @@
+{
+  "name": "Toys0125 BasisVR Packages",
+  "id": "com.toys0125.basis-vpm",
+  "url": "https://basisvpm.pages.dev/index.json",
+  "author": {
+    "name": "Toys0125",
+    "email": "marcus.g.stange@gmail.com",
+    "url": "https://github.com/Toys0125"
+  },
+  "description": "Unofficial BasisVR-compatible packages from Toys0125.",
+  "infoLink": {
+    "url": "https://github.com/Toys0125/BasisVPM",
+    "text": "View the registry source on GitHub"
+  },
+  "githubRepos": [
+    "Toys0125/VRCFury"
+  ],
+  "packageName": "com.toys0125.vrcfury-basis",
+  "releaseTagPrefix": "basis-v"
+}

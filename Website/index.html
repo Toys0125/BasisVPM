@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VRCFury for BasisVR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">Toys0125 · BasisVR packages</p>
+    <h1>VRCFury for BasisVR</h1>
+    <p class="lede">An unofficial BasisVR compatibility port of VRCFury. It is not the official upstream VRCFury distribution.</p>
+
+    <section class="card install-card">
+      <div>
+        <p class="eyebrow">Quick install</p>
+        <h2>Add the registry to VCC</h2>
+        <p>Use the VCC deep link when supported, or copy the registry URL and add it from VCC Settings → Packages.</p>
+      </div>
+      <div class="actions">
+        <button id="add-to-vcc" class="primary">Add to VCC</button>
+        <button id="copy-url" class="secondary">Copy registry URL</button>
+      </div>
+      <code id="registry-url">https://basisvpm.pages.dev/index.json</code>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <p class="eyebrow">Package</p>
+        <h2 id="package-name">com.toys0125.vrcfury-basis</h2>
+        <p>Latest version: <strong id="latest-version">Loading…</strong></p>
+        <a href="https://github.com/Toys0125/VRCFury">View the VRCFury source and releases →</a>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Current focus</p>
+        <h2>Basis compatibility</h2>
+        <p>The port automatically uses its Basis shim when Basis/Vixxy are installed and the VRChat SDK is absent. Armature Link and Blendshape Optimizer are supported priorities. SPS remains deferred.</p>
+      </article>
+    </section>
+
+    <section class="card instructions">
+      <p class="eyebrow">Manual installation</p>
+      <h2>VPM CLI</h2>
+      <p>Add the registry with:</p>
+      <pre><code>vpm add repo https://basisvpm.pages.dev/index.json</code></pre>
+      <p>Then install <code>com.toys0125.vrcfury-basis</code> from your VPM-compatible package manager.</p>
+      <p><a href="index.json">Open index.json</a> · <a href="https://github.com/Toys0125/BasisVPM">Registry source</a></p>
+    </section>
+
+    <footer>This is an unofficial BasisVR compatibility fork. Upstream VRCFury remains the original project.</footer>
+  </main>
+</body>
+</html>

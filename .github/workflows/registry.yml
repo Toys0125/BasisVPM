@@ -1,0 +1,48 @@
+name: Build and Validate BasisVPM Registry
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: basis-vpm-registry
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out registry
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Preserve published versions
+        run: |
+          if [ -f index.json ]; then cp index.json "$RUNNER_TEMP/previous-index.json"; fi
+
+      - name: Generate and validate index
+        run: |
+          node scripts/generate-index.mjs
+          node scripts/validate-index.mjs "$RUNNER_TEMP/previous-index.json"
+
+      - name: Commit registry updates
+        run: |
+          git config user.name 'Toys0125 BasisVPM Bot'
+          git config user.email 'marcus.g.stange@gmail.com'
+          git add index.json Website/index.json
+          if git diff --cached --quiet; then
+            echo 'Registry is already current.'
+          else
+            git commit -m 'Update generated package registry'
+            git push
+          fi
