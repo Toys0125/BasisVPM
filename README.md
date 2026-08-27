@@ -5,14 +5,14 @@ Upstream VRCFury remains the original project; this registry does not replace it
 
 ## Add repository
 
-Registry URL: <https://basisvpm.pages.dev/index.json>
+Registry URL: <https://vpm.toysland.pw/index.json>
 
-VCC deep link: <https://basisvpm.pages.dev/> (use the **Add to VCC** button)
+VCC deep link: <https://vpm.toysland.pw/> (use the **Add to VCC** button)
 
 CLI:
 
 ```text
-vpm add repo https://basisvpm.pages.dev/index.json
+vpm add repo https://vpm.toysland.pw/index.json
 ```
 
 ## Package

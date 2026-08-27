@@ -1,4 +1,4 @@
-const registryUrl = 'https://basisvpm.pages.dev/index.json';
+const registryUrl = 'https://vpm.toysland.pw/index.json';
 
 document.getElementById('add-to-vcc').addEventListener('click', () => {
   window.location.assign(`vcc://vpm/addRepo?url=${encodeURIComponent(registryUrl)}`);
