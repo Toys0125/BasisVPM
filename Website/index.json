@@ -6,6 +6,29 @@
   "packages": {
     "com.toys0125.vrcfury-basis": {
       "versions": {
+        "1.0.1": {
+          "name": "com.toys0125.vrcfury-basis",
+          "displayName": "VRCFury for BasisVR",
+          "version": "1.0.1",
+          "unity": "6000.0",
+          "description": "BasisVR compatibility port of VRCFury with Armature Link and Blendshape Optimizer support.",
+          "author": {
+            "name": "Toys0125"
+          },
+          "zipSHA256": "fdbcd9c7643db7c0e087873d425c34b9759b04af8dda260e988cf4dfd1b82314",
+          "url": "https://github.com/Toys0125/VRCFury/releases/download/basis-v1.0.1/com.toys0125.vrcfury-basis-1.0.1.zip",
+          "legacyFolders": {
+            "Assets\\VRCFury": "00b990f230095454f82c345d433841ae",
+            "Assets\\VRCFury-installer": "",
+            "Packages\\com.vrcfury.legacyprefabs": "",
+            "Packages\\com.vrcfury.updater": "",
+            "Packages\\com.vrcfury.installer": ""
+          },
+          "legacyFiles": {
+            "Packages\\com.vrcfury.legacyprefabs.tgz": "",
+            "Packages\\com.vrcfury.updater.tgz": ""
+          }
+        },
         "1.0.0": {
           "name": "com.toys0125.vrcfury-basis",
           "displayName": "VRCFury for BasisVR",
