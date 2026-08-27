@@ -26,26 +26,50 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install registry tooling
+      - name: Install validation tooling
         run: npm ci
 
       - name: Preserve published versions
         run: |
-          if [ -f index.json ]; then cp index.json "$RUNNER_TEMP/previous-index.json"; fi
+          if [ -f Website/index.json ]; then cp Website/index.json "$RUNNER_TEMP/previous-index.json"; fi
 
-      - name: Generate and validate index
+      - name: Check out official VRChat listing builder
+        uses: actions/checkout@v4
+        with:
+          repository: vrchat-community/package-list-action
+          path: ci
+          clean: false
+
+      - name: Restore listing builder cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ci/.nuke/temp
+            ~/.nuget/packages
+          key: ${{ runner.os }}-${{ hashFiles('ci/**/*.csproj', 'ci/**/global.json') }}
+
+      - name: Render official VRChat package-listing template
         run: |
-          node scripts/generate-index.mjs
+          chmod +x ci/build.cmd
+          cp Website/template/index.html Website/index.html
+          cp Website/template/app.js Website/app.js
+          ci/build.cmd BuildMultiPackageListing --root "$GITHUB_WORKSPACE/ci" --list-publish-directory "$GITHUB_WORKSPACE/Website"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate generated listing and package archives
+        run: |
+          cp Website/index.json index.json
           node scripts/validate-index.mjs "$RUNNER_TEMP/previous-index.json"
 
-      - name: Commit registry updates
+      - name: Commit generated listing
         run: |
           git config user.name 'Toys0125 BasisVPM Bot'
           git config user.email 'marcus.g.stange@gmail.com'
-          git add index.json Website/index.json
+          git add index.json Website/index.html Website/index.json Website/app.js Website/banner.png Website/favicon.ico Website/template
           if git diff --cached --quiet; then
             echo 'Registry is already current.'
           else
-            git commit -m 'Update generated package registry'
+            git commit -m 'Update generated package listing'
             git push
           fi
