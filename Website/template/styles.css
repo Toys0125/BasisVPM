@@ -354,3 +354,88 @@ h1 {
 .flex-1 {
   flex: 1;
 }
+
+/* Keep the official listing layout usable on small browser windows. */
+html,
+body {
+  min-width: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  padding: 24px;
+}
+
+.content,
+.searchBlock,
+.packages {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.addToVccBlock {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.addToVccBlock .vccUrlField {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  body {
+    align-items: flex-start;
+    padding: 16px 12px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .addToVccBlock {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .addToVccBlock .vccUrlField,
+  .addToVccBlock fluent-button {
+    margin-left: 0 !important;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .searchBlock {
+    margin-top: 1.25rem;
+  }
+
+  .packages {
+    margin-top: .75rem;
+    overflow-x: hidden;
+  }
+
+  #packageGrid {
+    max-height: none;
+    overflow: visible;
+  }
+
+  #packageGrid fluent-data-grid-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #packageGrid fluent-data-grid-cell[grid-column="2"],
+  #packageGrid fluent-data-grid-cell[grid-column="3"] {
+    grid-column: 1 !important;
+    justify-content: flex-start;
+  }
+
+  #packageGrid fluent-data-grid-row[row-type="default"] fluent-data-grid-cell[grid-column="3"] {
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding-top: .5rem;
+  }
+}
