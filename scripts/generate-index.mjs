@@ -77,7 +77,7 @@ function validateManifest(manifest, packageName, version) {
   }
   if (manifest.name !== packageName) throw new Error(`Expected ${packageName}, got ${manifest.name}`);
   if (manifest.version !== version) throw new Error(`Release ${version} contains manifest version ${manifest.version}`);
-  if (!manifest.author.name || !manifest.author.email) throw new Error('Package author.name and author.email are required');
+  if (!manifest.author.name) throw new Error('Package author.name is required');
   if (Object.keys(manifest.dependencies ?? {}).some((name) => name.startsWith('com.vrchat.'))) {
     throw new Error('Basis package must not depend on VRChat SDK packages');
   }

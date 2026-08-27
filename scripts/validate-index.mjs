@@ -26,7 +26,9 @@ for (const [packageId, packageListing] of Object.entries(index.packages)) {
     }
     if (manifest.name !== packageId) throw new Error(`${packageId}@${version} has the wrong package name`);
     if (manifest.version !== version) throw new Error(`${packageId}@${version} does not match its version key`);
-    if (!manifest.author.name || !manifest.author.email) throw new Error(`${packageId}@${version} has incomplete author metadata`);
+    if (!manifest.author.name) throw new Error(`${packageId}@${version} has incomplete author metadata`);
+    if (manifest.author.email) throw new Error(`${packageId}@${version} exposes an author email in the public registry`);
+    if (manifest.unity !== '6000.0') throw new Error(`${packageId}@${version} must target Unity 6000.0`);
     if (Object.keys(manifest.dependencies ?? {}).some((name) => name.startsWith('com.vrchat.'))) {
       throw new Error(`${packageId}@${version} declares a VRChat SDK dependency`);
     }

@@ -55,6 +55,7 @@ jobs:
           cp Website/template/app.js Website/app.js
           ci/build.cmd BuildMultiPackageListing --root "$GITHUB_WORKSPACE/ci" --list-publish-directory "$GITHUB_WORKSPACE/Website"
           sed -i 's|href="styles.css"|href="styles.css?v=official-template-1"|g' Website/index.html
+          node scripts/normalize-public-index.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -66,7 +67,7 @@ jobs:
       - name: Commit generated listing
         run: |
           git config user.name 'Toys0125 BasisVPM Bot'
-          git config user.email 'marcus.g.stange@gmail.com'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.json Website/index.html Website/index.json Website/app.js Website/favicon.ico Website/template
           if git diff --cached --quiet; then
             echo 'Registry is already current.'
