@@ -3,53 +3,97 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VRCFury for BasisVR</title>
+  <meta name="description" content="Toys0125's unofficial BasisVR package registry.">
+  <title>Toys0125 Package Registry</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
 </head>
 <body>
-  <main class="shell">
-    <p class="eyebrow">Toys0125 · BasisVR packages</p>
-    <h1>VRCFury for BasisVR</h1>
-    <p class="lede">An unofficial BasisVR compatibility port of VRCFury. It is not the official upstream VRCFury distribution.</p>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
 
-    <section class="card install-card">
-      <div>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Toys0125 Package Registry home">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-copy"><strong>Toys0125</strong><small>Package Registry</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#packages">Packages</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/Toys0125/BasisVPM">Source</a>
+      </div>
+      <a class="nav-button" href="#install">Get started <span aria-hidden="true">-></span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Toys0125 / BasisVR</p>
+        <h1>Tools for your <span>avatar workflow.</span></h1>
+        <p class="hero-lede">A growing collection of community packages for BasisVR projects, curated and published by Toys0125.</p>
+        <div class="hero-actions">
+          <button id="add-to-vcc" class="button button-primary">Add to VCC <span aria-hidden="true">-></span></button>
+          <a class="button button-ghost" href="#packages">Browse packages <span aria-hidden="true">&#8595;</span></a>
+        </div>
+        <p class="hero-note">Unofficial community registry. Not affiliated with VRChat or BasisVR.</p>
+      </div>
+
+      <aside class="registry-panel" aria-label="Registry status">
+        <div class="panel-topline"><span>REGISTRY STATUS</span><span class="live-label"><span class="status-dot"></span> Live</span></div>
+        <div class="panel-mark" aria-hidden="true">V</div>
+        <p class="panel-title">Toys0125 packages</p>
+        <p class="panel-url" id="hero-registry-url">https://vpm.toysland.pw/index.json</p>
+        <div class="panel-stats">
+          <div><strong id="package-count">--</strong><span>Packages</span></div>
+          <div><strong id="version-count">--</strong><span>Versions</span></div>
+          <div><strong>100%</strong><span>Open source</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="install-bar shell" id="install">
+      <div class="install-heading">
         <p class="eyebrow">Quick install</p>
-        <h2>Add the registry to VCC</h2>
-        <p>Use the VCC deep link when supported, or copy the registry URL and add it from VCC Settings → Packages.</p>
+        <h2>One registry. Every package.</h2>
       </div>
-      <div class="actions">
-        <button id="add-to-vcc" class="primary">Add to VCC</button>
-        <button id="copy-url" class="secondary">Copy registry URL</button>
+      <div class="install-url-wrap">
+        <code id="registry-url">https://vpm.toysland.pw/index.json</code>
+        <button id="copy-url" class="copy-button">Copy URL</button>
       </div>
-      <code id="registry-url">https://vpm.toysland.pw/index.json</code>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <p class="eyebrow">Package</p>
-        <h2 id="package-name">com.toys0125.vrcfury-basis</h2>
-        <p>Latest version: <strong id="latest-version">Loading…</strong></p>
-        <a href="https://github.com/Toys0125/VRCFury">View the VRCFury source and releases →</a>
-      </article>
-      <article class="card">
-        <p class="eyebrow">Current focus</p>
-        <h2>Basis compatibility</h2>
-        <p>The port automatically uses its Basis shim when Basis/Vixxy are installed and the VRChat SDK is absent. Armature Link and Blendshape Optimizer are supported priorities. SPS remains deferred.</p>
-      </article>
+    <section class="content-section shell" id="packages">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2>Available packages</h2>
+        </div>
+        <p>Install what you need today. New tools can join the registry without changing your VCC setup.</p>
+      </div>
+      <div id="package-grid" class="package-grid" aria-live="polite">
+        <p class="loading">Loading packages...</p>
+      </div>
     </section>
 
-    <section class="card instructions">
-      <p class="eyebrow">Manual installation</p>
-      <h2>VPM CLI</h2>
-      <p>Add the registry with:</p>
-      <pre><code>vpm add repo https://vpm.toysland.pw/index.json</code></pre>
-      <p>Then install <code>com.toys0125.vrcfury-basis</code> from your VPM-compatible package manager.</p>
-      <p><a href="index.json">Open index.json</a> · <a href="https://github.com/Toys0125/BasisVPM">Registry source</a></p>
+    <section class="manual-card shell">
+      <div>
+        <p class="eyebrow">For power users</p>
+        <h2>Prefer the command line?</h2>
+        <p>Add the registry to any VPM-compatible workflow, then install packages by their package ID.</p>
+      </div>
+      <div class="command-block">
+        <span>VPM CLI</span>
+        <code>vpm add repo https://vpm.toysland.pw/index.json</code>
+      </div>
     </section>
-
-    <footer>This is an unofficial BasisVR compatibility fork. Upstream VRCFury remains the original project.</footer>
   </main>
+
+  <footer class="site-footer shell">
+    <div><strong>Toys0125</strong><span>BasisVR package registry</span></div>
+    <div class="footer-links"><a href="https://github.com/Toys0125/BasisVPM">GitHub</a><a href="index.json">index.json</a><a href="https://github.com/Toys0125/VRCFury">VRCFury source</a></div>
+    <p>Community-made and unofficial. Respect each package's license and documentation.</p>
+  </footer>
 </body>
 </html>
