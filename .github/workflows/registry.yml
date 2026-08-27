@@ -54,6 +54,7 @@ jobs:
           cp Website/template/index.html Website/index.html
           cp Website/template/app.js Website/app.js
           ci/build.cmd BuildMultiPackageListing --root "$GITHUB_WORKSPACE/ci" --list-publish-directory "$GITHUB_WORKSPACE/Website"
+          sed -i 's|href="styles.css"|href="styles.css?v=official-template-1"|g' Website/index.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
