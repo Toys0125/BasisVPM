@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 24
 
+      - name: Install registry tooling
+        run: npm ci
+
       - name: Preserve published versions
         run: |
           if [ -f index.json ]; then cp index.json "$RUNNER_TEMP/previous-index.json"; fi
