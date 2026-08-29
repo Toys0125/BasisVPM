@@ -6,8 +6,8 @@ const PACKAGES = {
   "com.toys0125.vrcfury-basis": {
     name: "com.toys0125.vrcfury-basis",
     displayName: "VRCFury for BasisVR",
-    description: "BasisVR compatibility port of VRCFury with Armature Link, Blendshape Optimizer, face tracking preservation, and MMD Compatibility support.",
-    version: "1.0.5",
+    description: "BasisVR compatibility port of VRCFury with Armature Link, Blendshape Optimizer, face tracking preservation, MMD Compatibility, Test in Editor support, and Basis custom shader preservation.",
+    version: "1.0.6",
     author: {
       name: "Toys0125",
       url: "",
